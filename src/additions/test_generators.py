@@ -10,8 +10,7 @@ generator's function code reaches a "yield" statement, the generator yields its 
 the for loop, returning a new value from the set. The generator function can generate as many
 values (possibly infinite) as it wants, yielding each one in its turn.
 """
-
-import random
+import secrets
 
 
 def lottery():
@@ -24,10 +23,10 @@ def lottery():
     # returns first 3 random numbers between 1 and 10
     # pylint: disable=unused-variable
     for _ in range(3):
-        yield random.randint(1, 10)
+        yield secrets.SystemRandom().randint(1, 10)
 
     # returns a 4th number between 10 and 20
-    yield random.randint(10, 20)
+    yield secrets.SystemRandom().randint(10, 20)
 
 
 def test_generators():
