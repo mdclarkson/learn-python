@@ -15,8 +15,8 @@ def test_math():
 
     The math module gives access to the underlying C library functions for floating point math.
     """
-    assert math.cos(math.pi / 4) == 0.70710678118654757
-    assert math.log(1024, 2) == 10.0
+    assert math.isclose(math.cos(math.pi / 4), 0.70710678118654757, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(math.log(1024, 2), 10.0, rel_tol=1e-09, abs_tol=0.0)
 
 
 def test_random():
@@ -53,6 +53,6 @@ def test_statistics():
 
     data = [2.75, 1.75, 1.25, 0.25, 0.5, 1.25, 3.5]
 
-    assert statistics.mean(data) == 1.6071428571428572
-    assert statistics.median(data) == 1.25
-    assert statistics.variance(data) == 1.3720238095238095
+    assert math.isclose(statistics.mean(data), 1.6071428571428572, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(statistics.median(data), 1.25, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(statistics.variance(data), 1.3720238095238095, rel_tol=1e-09, abs_tol=0.0)

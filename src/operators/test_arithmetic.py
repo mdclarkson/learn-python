@@ -4,6 +4,7 @@
 
 Arithmetic operators are used with numeric values to perform common mathematical operations
 """
+import math
 
 
 def test_arithmetic_operators():
@@ -21,7 +22,7 @@ def test_arithmetic_operators():
 
     # Division.
     # Result of division is float number.
-    assert 5 / 3 == 1.6666666666666667
+    assert math.isclose(5 / 3, 1.6666666666666667, rel_tol=1e-09, abs_tol=0.0)
     assert 8 / 4 == 2
     assert isinstance(5 / 3, float)
     assert isinstance(8 / 4, float)

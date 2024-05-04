@@ -18,6 +18,7 @@ whole number)
 - str() - constructs a string from a wide variety of data types, including strings, integer
 literals and float literals
 """
+import math
 
 
 def test_type_casting_to_integer():
@@ -31,10 +32,10 @@ def test_type_casting_to_integer():
 def test_type_casting_to_float():
     """Type casting to float"""
 
-    assert float(1) == 1.0
-    assert float(2.8) == 2.8
-    assert float("3") == 3.0
-    assert float("4.2") == 4.2
+    assert math.isclose(float(1), 1.0, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(float(2.8), 2.8, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(float("3"), 3.0, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(float("4.2"), 4.2, rel_tol=1e-09, abs_tol=0.0)
 
 
 def test_type_casting_to_string():

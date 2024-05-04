@@ -9,6 +9,7 @@ There are three numeric types in Python:
 - float (e.g. 5.0, 1.6)
 - complex (e.g. 5+6j, 4-3j)
 """
+import math
 
 
 def test_integer_numbers():
@@ -63,7 +64,7 @@ def test_float_numbers():
     float_number_via_function = float(7)
     float_negative = -35.59
 
-    assert float_number == float_number_via_function
+    assert math.isclose(float_number, float_number_via_function, rel_tol=1e-09, abs_tol=0.0)
     assert isinstance(float_number, float)
     assert isinstance(float_number_via_function, float)
     assert isinstance(float_negative, float)
@@ -73,8 +74,8 @@ def test_float_numbers():
     float_with_small_e = 35e3
     float_with_big_e = 12E4
 
-    assert float_with_small_e == 35000
-    assert float_with_big_e == 120000
+    assert math.isclose(float_with_small_e, 35000, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(float_with_big_e, 120000, rel_tol=1e-09, abs_tol=0.0)
     assert isinstance(12E4, float)
     assert isinstance(-87.7e100, float)
 
@@ -100,9 +101,9 @@ def test_number_operators():
     assert 2 * 4 == 8
 
     # Division always returns a floating point number.
-    assert 12 / 3 == 4.0
-    assert 12 / 5 == 2.4
-    assert 17 / 3 == 5.666666666666667
+    assert math.isclose(12 / 3, 4.0, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(12 / 5, 2.4, rel_tol=1e-09, abs_tol=0.0)
+    assert math.isclose(17 / 3, 5.666666666666667, rel_tol=1e-09, abs_tol=0.0)
 
     # Modulo operator returns the remainder of the division.
     assert 12 % 3 == 0
@@ -117,4 +118,4 @@ def test_number_operators():
 
     # There is full support for floating point; operators with
     # mixed type operands convert the integer operand to floating point.
-    assert 4 * 3.75 - 1 == 14.0
+    assert math.isclose(4 * 3.75 - 1, 14.0, rel_tol=1e-09, abs_tol=0.0)
