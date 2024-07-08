@@ -6,8 +6,8 @@ Math module is useful as many math functions are already implemented and optimiz
 """
 
 import math
-import random
 import statistics
+import secrets
 
 
 def test_math():
@@ -27,20 +27,20 @@ def test_random():
 
     # Choose from the list randomly.
     random_options = ['apple', 'pear', 'banana']
-    random_choice = random.choice(random_options)  # i.e. 'apple'
+    random_choice = secrets.choice(random_options)  # i.e. 'apple'
     assert random_choice in random_options
 
     # Sampling without replacement.
-    random_sample = random.sample(range(100), 10)  # i.e. [30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
+    random_sample = secrets.SystemRandom().sample(range(100), 10)  # i.e. [30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
     for sample in random_sample:
         assert 0 <= sample <= 100
 
     # Choose random number.
-    random_float = random.random()  # i.e. 0.17970987693706186
+    random_float = secrets.SystemRandom().random()  # i.e. 0.17970987693706186
     assert 0 <= random_float <= 1
 
     # Random integer chosen from range(6)
-    random_integer = random.randrange(6)  # i.e. 4
+    random_integer = secrets.SystemRandom().randrange(6)  # i.e. 4
     assert 0 <= random_integer <= 6
 
 
