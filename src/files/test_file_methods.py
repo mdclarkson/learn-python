@@ -41,10 +41,10 @@ def test_file_methods():
     # containing only a single newline.
     multi_line_file.seek(0)
 
-    assert multi_line_file.readline() == 'first line\n'
-    assert multi_line_file.readline() == 'second line\n'
-    assert multi_line_file.readline() == 'third line'
-    assert multi_line_file.readline() == ''
+    assert multi_line_file.readline(5_000_000) == 'first line\n'
+    assert multi_line_file.readline(5_000_000) == 'second line\n'
+    assert multi_line_file.readline(5_000_000) == 'third line'
+    assert multi_line_file.readline(5_000_000) == ''
 
     multi_line_file.close()
     binary_file.close()
